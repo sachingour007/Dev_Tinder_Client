@@ -2,9 +2,9 @@ import React from "react";
 
 function Header() {
   return (
-    <div className="navbar bg-neutral shadow-sm px-3.5">
+    <div className="navbar bg-neutral shadow-sm px-5">
       <div className="flex-1">
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <a className="btn btn-ghost text-xl px-0">👨‍💻 DevTinder</a>
       </div>
       <div className="flex gap-2">
         <div className="dropdown dropdown-end">
