@@ -1,2 +1,9 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+
+/*Font Media Query*/
+
+@utility font60 {
+  @apply text-[28px] md:text-[32px] lg:text-[36px] xl:text-[44px] 2xl:text-[60px];
+}
