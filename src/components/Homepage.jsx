@@ -1,9 +1,12 @@
 import React from "react";
+import HompageCard from "./HompageCard";
+import { hpCardData } from "../constant/hpCardData";
+import TextRoatate from "./TextRoatate";
 
 const Homepage = () => {
   return (
     <>
-      <section>
+      <section className="mb-[50px] lg:mb-[100px]">
         <div className="hero bg-base-200">
           <div className="hero-content flex-col lg:flex-row-reverse py-8 lg:px-10 lg:gap-[50px] xl:gap-[70px]">
             <div className=" w-full lg:w-3/6">
@@ -14,18 +17,37 @@ const Homepage = () => {
             </div>
             <div className="w-full lg:w-3/6">
               <h1 className="text-5xl font-bold font60">
-                Find you idea coding collaborator
+                Find your idea coding collaborator
               </h1>
               <p className="py-3.5 lg:py-6 font-winkyRough">
                 Connect with fellow developers based on skill, hobbies and
                 coding preferences.
               </p>
-              <button className="btn btn-primary">Sign up</button>
+              <button className="btn btn-primary tracking-[0.5px]">
+                Sign up
+              </button>
             </div>
           </div>
         </div>
       </section>
-      <section></section>
+      <section>
+        <div className="wrapper mb-[50px] lg:mb-[100px]">
+          <h2 className="text-center font48 tracking-wide leading-[140%] font-bold mb-5">
+            What We Offer
+          </h2>
+          <div className="flex justify-center gap-5 lg:px-[100px]">
+            {hpCardData.map((el) => (
+              <HompageCard key={el.id} {...el} />
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="text-center py-20 px-4 bg-base-300 text-white mb-[50px] lg:mb-[100px]">
+        <h2 className="font-bold mb-6 font40">
+          Why We Build Together
+        </h2>
+        <TextRoatate />
+      </section>
     </>
   );
 };
