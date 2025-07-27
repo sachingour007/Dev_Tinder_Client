@@ -48,3 +48,18 @@
 @utility wrapper {
   @apply px-[20px] md:px-[30px] xl:px-[40px] 2xl:px-[60px] [@media(min-width:1800px)]:px-[80px];
 }
+
+@theme {
+  --animate-wiggle: wiggle 4s ease-in-out infinite;
+  @keyframes wiggle {
+    0%,
+    100% {
+      transform: translateY(-10%);
+      animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+    50% {
+      transform: none;
+      animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+  }
+}
