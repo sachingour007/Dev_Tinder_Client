@@ -7,11 +7,11 @@ const LoginSingupWrapper = () => {
   return (
     <section className="bg-gradient-to-r from-[#0f172a]  to-[#334155]">
       <div className="card text-primary-content w-full py-12 items-center justify-center">
-        <div className="card-body flex flex-row p-0  w-4/5 gap-5">
+        <div className="card-body flex flex-row items-center p-0  w-4/5 gap-5">
           <div className="w-3/6 ">
             <img src={loginpageIcon} alt="" className="animate-wiggle" />
           </div>
-          <div className="w-3/6 p-12">
+          <div className="w-3/6 p-12 border border-cyan-700 rounded-2xl bg-base-300 ">
             <Outlet />
           </div>
         </div>
