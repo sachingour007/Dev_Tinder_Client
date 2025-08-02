@@ -29,3 +29,5 @@ export const qouteData = [
   "Ideas grow faster when shared.",
   "You don't build products — you build teams.",
 ];
+
+export const URL = "http://localhost:8080";
