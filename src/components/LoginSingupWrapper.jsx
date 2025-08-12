@@ -5,8 +5,8 @@ import { Outlet } from "react-router-dom";
 
 const LoginSingupWrapper = () => {
   return (
-    <section className="bg-gradient-to-r from-[#0f172a]  to-[#334155]">
-      <div className="card text-primary-content w-full py-12 items-center justify-center">
+    <section className="bg-gradient-to-r from-[#0f172a]  to-[#334155] flex-1">
+      <div className="card text-primary-content w-full py-7 items-center justify-center">
         <div className="card-body flex flex-row items-center p-0  w-4/5 gap-5">
           <div className="w-3/6 ">
             <img src={loginpageIcon} alt="" className="animate-wiggle" />

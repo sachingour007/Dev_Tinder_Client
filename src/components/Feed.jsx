@@ -1,7 +1,36 @@
-import React from "react";
+import React, { useEffect } from "react";
+import axios from "axios";
+import { URL } from "../constant/hpCardData";
+import { useDispatch, useSelector } from "react-redux";
+import FeedCard from "./FeedCard";
+import { addFeed } from "../utils/feedSlice";
 
 const Feed = () => {
-  return <div>Feed</div>;
+  const dispatch = useDispatch();
+  const feedData = useSelector((store) => store.feed);
+
+  const getFeed = async () => {
+    if (feedData) return;
+    try {
+      const res = await axios.get(URL + "/feed", { withCredentials: true });
+      dispatch(addFeed(res.data?.users));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  console.log(feedData);
+
+  useEffect(() => {
+    getFeed();
+  }, []);
+
+  return (
+    feedData && (
+      <div className=" flex justify-center py-10 bg-gradient-to-b from-[#db2777] via-[#ef4444] to-[#f97316] flex-1 ">
+        <FeedCard feedData={feedData[0]} />
+      </div>
+    )
+  );
 };
 
 export default Feed;

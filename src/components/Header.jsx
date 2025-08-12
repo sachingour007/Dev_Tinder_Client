@@ -20,7 +20,7 @@ function Header() {
     }
   };
   return (
-    <div className="navbar bg-neutral shadow-sm px-5">
+    <div className="navbar bg-neutral shadow-sm px-5 flex-none">
       <div className="flex-1">
         <Link to={"/feed"} className="btn btn-ghost text-xl">
           👨‍💻 DevTinder

@@ -15,7 +15,7 @@ const Body = () => {
   const fetchUser = async () => {
     if (userData) return;
     try {
-      const res = await axios.get(URL + "/view", {
+      const res = await axios.get(URL + "/profile/view", {
         withCredentials: true,
       });
       dispatch(addUser(res.data));
@@ -32,11 +32,11 @@ const Body = () => {
   }, []);
 
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <Header />
       <Outlet />
       <Footer />
-    </>
+    </div>
   );
 };
 
