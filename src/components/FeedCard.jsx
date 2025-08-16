@@ -9,8 +9,8 @@ const FeedCard = ({ feedData }) => {
       <div className="relative w-full h-full before:content-[''] before:absolute before:bg-[rgba(0,0,0,0.3)]  before:top-0  before:left-0 before:w-full before:h-full">
         <img src={photoUrl} alt="photo" />
       </div>
-      <div className="card-body absolute w-full bottom-0 p-3.5">
-        <div className="flex items-center gap-2.5">
+      <div className="card-body absolute w-full bottom-0 p-3.5 pb-1">
+        <div className="flex items-center gap-2">
           <h2 className="card-title font36 font-medium">
             {firstName + " " + lastName}
           </h2>
@@ -18,10 +18,10 @@ const FeedCard = ({ feedData }) => {
             <span className="font16">{age + " " + gender}</span>
           </div>
         </div>
-        <p>{about}</p>
-        <div className="card-actions justify-end">
-          <ul className="flex">
-            <li>
+        <p className="font16">{about}</p>
+        <div className="card-actions justify-end ">
+          <ul className="flex items-center justify-evenly w-full">
+            <li className="btnLiFeed">
               <svg
                 width="34px"
                 height="34px"
@@ -61,7 +61,7 @@ const FeedCard = ({ feedData }) => {
                 </g>
               </svg>
             </li>
-            <li>
+            <li className="btnLiFeed">
               <svg
                 width="34px"
                 height="34px"

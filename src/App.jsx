@@ -1,15 +1,16 @@
-import {} from "react";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Body from "./components/Body";
-import About from "./components/About";
-import Homepage from "./components/Homepage";
-import Login from "./components/Login";
-import LoginSingupWrapper from "./components/LoginSingupWrapper";
-import Singup from "./components/Singup";
 import { Provider } from "react-redux";
 import store from "./utils/store";
-import Feed from "./components/Feed";
+import {
+  Profile,
+  Feed,
+  Login,
+  Homepage,
+  Body,
+  LoginSingupWrapper,
+  Singup,
+} from "./index";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path="/singup" element={<LoginSingupWrapper />}>
               <Route index element={<Singup />} />
             </Route>
+            <Route path="/profile" element={<Profile />} />
           </Route>
         </Routes>
       </BrowserRouter>

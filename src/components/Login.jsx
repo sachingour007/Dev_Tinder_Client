@@ -8,6 +8,7 @@ import { URL } from "../constant/hpCardData";
 const Login = () => {
   const [emailId, setEmailId] = useState("mona@gmail.com");
   const [password, setPassword] = useState("Mona@123");
+  const [error, setError] = useState(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -20,8 +21,15 @@ const Login = () => {
       );
       dispatch(addUser(res.data));
       navigate("/feed");
-    } catch (error) {
-      console.log("Axios error:", error.response?.status, error.message);
+    } catch (err) {
+      console.log(err);
+      if (err.response) {
+        console.error("Backend said:", err.response.data.error);
+        setError(err.response.data.error);
+      } else {
+        console.error("No response from server");
+        setError("No response from server");
+      }
     }
   };
 
@@ -57,6 +65,8 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </fieldset>
+
+        {error ? <p className="text-red-600 pl-1">{error}</p> : ""}
       </div>
       <div className="card-actions mt-8 mb-6">
         <button
