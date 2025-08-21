@@ -26,8 +26,10 @@ const Feed = () => {
 
   return (
     feedData && (
-      <div className=" flex justify-center py-10 bg-gradient-to-b from-[#db2777] via-[#ef4444] to-[#f97316] flex-1 ">
-        <FeedCard feedData={feedData[0]} />
+      <div className=" flex justify-center bg-gradient-to-b from-[#db2777] via-[#ef4444] to-[#f97316] flex-1 ">
+        <div className="flex items-center justify-center">
+          <FeedCard feedData={feedData[0]} />
+        </div>
       </div>
     )
   );

@@ -5,20 +5,30 @@ const FeedCard = ({ feedData }) => {
     feedData;
 
   return (
-    <div className="card bg-base-200 w-96 shadow-sm overflow-hidden h-full">
-      <div className="relative w-full h-full before:content-[''] before:absolute before:bg-[rgba(0,0,0,0.3)]  before:top-0  before:left-0 before:w-full before:h-full">
+    <div className="card bg-base-200 shadow-sm overflow-hidden w-1/2 ">
+      <div className="relative w-full before:content-[''] before:absolute before:bg-[rgba(0,0,0,0.2)]  before:top-0  before:left-0 before:w-full before:h-full">
         <img src={photoUrl} alt="photo" />
       </div>
-      <div className="card-body absolute w-full bottom-0 p-3.5 pb-1">
+      <div className="card-body w-full p-3.5">
         <div className="flex items-center gap-2">
-          <h2 className="card-title font36 font-medium">
+          <h2 className="card-title font36 font-medium tracking-wide">
             {firstName + " " + lastName}
           </h2>
           <div className="flex gap-1 capitalize font-semibold">
-            <span className="font16">{age + " " + gender}</span>
+            <span className="font16">{age + " " + gender.charAt(0)}</span>
           </div>
         </div>
-        <p className="font16">{about}</p>
+        <p className="font16 font-medium tracking-wide">{about}</p>
+        <div className="flex items-center gap-1.5 mb-2.5 ">
+          <p className="grow-0 font16 font-semibold tracking-wider">Skills :</p>
+          <ul className="flex gap-2">
+            {skills.map((skill) => (
+              <li key={skill} className="font16 font-semibold tracking-[1px] ">
+                {"["+skill+"]"},
+              </li>
+            ))}
+          </ul>
+        </div>
         <div className="card-actions justify-end ">
           <ul className="flex items-center justify-evenly w-full">
             <li className="btnLiFeed">
