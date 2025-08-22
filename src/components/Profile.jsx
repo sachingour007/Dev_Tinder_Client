@@ -1,98 +1,113 @@
-import React from "react";
+import React, { useState } from "react";
 import FeedCard from "./FeedCard";
+import MultiSelectComponent from "./MultiSelectComponent";
+import { skillOptions } from "../constant/skillList";
 
 const Profile = () => {
+  const [updateProfile, setUpdateProfile] = useState({
+    firstName: "",
+    lastName: "",
+    age: "",
+    gender: "",
+
+    photoUrl: "",
+    about: "",
+  });
+  const [skills, setSkills] = useState([]);
+
   return (
-    <div className="hero bg-base-200 min-h-screen ">
-      <div className="hero-content flex-col items-start lg:flex-row border border-white">
-        <div className="text-center lg:text-left">
-          <h2 className="text-5xl font-bold mb-10">Profile Update</h2>
+    <div className="hero  flex-1 ">
+      <div className="hero-content flex-col items-start lg:flex-row border border-cyan-700 rounded-2xl w-full gap-[100px] bg-base-300">
+        <div className="text-center lg:text-left w-1/2">
+          <h2 className="text-5xl font-bold mb-10 text-center">
+            Profile Update
+          </h2>
           <div className="">
             <div>
-              <fieldset className="fieldset p-0">
-                <legend className="fieldset-legend font18 mb-1 tracking-wide">
-                  First Name
-                </legend>
-                <input
-                  type="text"
-                  className="input py-5 font16"
-                  placeholder="Enter First Name"
-                  name=""
-                  value=""
-                />
-              </fieldset>
-              <fieldset className="fieldset p-0">
-                <legend className="fieldset-legend font18 mb-1 tracking-wide">
-                  Last Name
-                </legend>
-                <input
-                  type="text"
-                  className="input py-5 font16"
-                  placeholder="Enter Last Name"
-                  name=""
-                  value=""
-                />
-              </fieldset>
-              <div className="flex gap-5 pt-3.5 items-baseline">
-                <p className="font18 tracking-wide font-semibold">Gender :</p>
-                <label htmlFor="male">
-                  Male
+              <div className="flex flex-row gap-2.5 w-full">
+                <fieldset className="fieldset p-0 w-1/2">
+                  <legend className="fieldset-legend font18 mb-1 tracking-wide ">
+                    First Name
+                  </legend>
                   <input
-                    type="radio"
-                    name="radio-1"
-                    id="male"
-                    className="radio ml-1.5"
-                    defaultChecked
+                    type="text"
+                    className="input py-5 font16 w-full"
+                    placeholder="Enter First Name"
                   />
-                </label>
-                <label htmlFor="female">
-                  Female
+                </fieldset>
+                <fieldset className="fieldset p-0 w-1/2">
+                  <legend className="fieldset-legend font18 mb-1 tracking-wide">
+                    Last Name
+                  </legend>
                   <input
-                    type="radio"
-                    name="radio-1"
-                    className="radio ml-1.5"
-                    id="female"
+                    type="text"
+                    className="input py-5 font16 w-full"
+                    placeholder="Enter Last Name"
                   />
-                </label>
+                </fieldset>
               </div>
 
-              <fieldset className="fieldset p-0">
+              <div className="flex flex-row items-center gap-2.5 w-full">
+                <div className="w-1/2">
+                  <legend className="fieldset-legend font18 mb-1 tracking-wide">
+                    Gender
+                  </legend>
+                  <select defaultValue="Gender" className="select ">
+                    <option disabled={true}>Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                  </select>
+                </div>
+                <fieldset className="fieldset p-0 w-1/2">
+                  <legend className="fieldset-legend font18 mb-1 tracking-wide">
+                    Age
+                  </legend>
+                  <input
+                    type="number"
+                    className="input py-5 font16"
+                    placeholder="Enter Last Name"
+                    name="age"
+                  />
+                </fieldset>
+              </div>
+
+              <div>
                 <legend className="fieldset-legend font18 mb-1 tracking-wide">
-                  Age
+                  Skills
                 </legend>
-                <input
-                  type="number"
-                  className="input py-5 font16"
-                  placeholder="Enter Last Name"
-                  name="age"
-                  value=""
-                />
-              </fieldset>
-              <fieldset className="fieldset p-0">
+                <div>
+                  <MultiSelectComponent
+                    option={skillOptions}
+                    skills={skills}
+                    setSkills={setSkills}
+                  />
+                </div>
+              </div>
+
+              <fieldset className="fieldset p-0 w-full">
                 <legend className="fieldset-legend font18 mb-1 tracking-wide">
                   Photo URL
                 </legend>
                 <input
-                  type="number"
-                  className="input py-5 font16"
+                  type="text"
+                  className="input py-5 font16 w-full"
                   placeholder="Enter Last Name"
                   name="photoUrl"
-                  value=""
                 />
               </fieldset>
-              <fieldset className="fieldset p-0">
+              <fieldset className="fieldset p-0 w-full">
                 <legend className="fieldset-legend font18 mb-1 tracking-wide">
                   About
                 </legend>
                 <textarea
-                  className="textarea font16"
+                  className="textarea font16 w-full"
                   placeholder="Bio"
                 ></textarea>
               </fieldset>
             </div>
           </div>
         </div>
-        <div className="card bg-base-100 w-96 shadow-sm">
+        <div className="card bg-base-100 shadow-sm w-1/2">
           <figure>
             <img
               src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"

@@ -18,7 +18,6 @@ const Feed = () => {
       console.log(error);
     }
   };
-  console.log(feedData);
 
   useEffect(() => {
     getFeed();
@@ -28,7 +27,9 @@ const Feed = () => {
     feedData && (
       <div className=" flex justify-center bg-gradient-to-b from-[#db2777] via-[#ef4444] to-[#f97316] flex-1 ">
         <div className="flex items-center justify-center">
-          <FeedCard feedData={feedData[0]} />
+          {feedData.map((card) => (
+            <FeedCard key={card._id} feedData={card} />
+          ))}
         </div>
       </div>
     )
