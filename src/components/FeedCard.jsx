@@ -5,13 +5,13 @@ const FeedCard = ({ feedData }) => {
     feedData;
 
   return (
-    <div className="card bg-base-200 shadow-sm overflow-hidden w-1/2 ">
-      <div className="relative w-full before:content-[''] before:absolute before:bg-[rgba(0,0,0,0.2)]  before:top-0  before:left-0 before:w-full before:h-full">
+    <div className="card bg-base-200 shadow-sm overflow-hidden">
+      <div className="relative w-[400px] h-[400px] flex items-center justify-center">
         <img src={photoUrl} alt="photo" />
       </div>
       <div className="card-body w-full p-3.5">
         <div className="flex items-center gap-2">
-          <h2 className="card-title font36 font-medium tracking-wide">
+          <h2 className="card-title font36 font-medium tracking-wide capitalize">
             {firstName + " " + lastName}
           </h2>
           <div className="flex gap-1 capitalize font-semibold">
@@ -22,9 +22,9 @@ const FeedCard = ({ feedData }) => {
         <div className="flex items-center gap-1.5 mb-2.5 ">
           <p className="grow-0 font16 font-semibold tracking-wider">Skills :</p>
           <ul className="flex gap-2">
-            {skills.map((skill) => (
-              <li key={skill} className="font16 font-semibold tracking-[1px] ">
-                {"["+skill+"]"},
+            {skills.map((skill, index) => (
+              <li key={index} className="font16 font-semibold tracking-[1px] ">
+                {"[" + skill + "]"},
               </li>
             ))}
           </ul>
