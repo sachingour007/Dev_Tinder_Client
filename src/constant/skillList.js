@@ -1,7 +1,7 @@
 export const skillOptions = [
   { label: "HTML", value: "html" },
   { label: "CSS", value: "css" },
-  { label: "Tailwind CSS", value: "tailwind" },
+  { label: "Tailwind", value: "tailwind" },
   { label: "JavaScript", value: "javascript" },
   { label: "TypeScript", value: "typescript" },
   { label: "React", value: "react" },

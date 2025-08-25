@@ -57,15 +57,12 @@ const MultiSelectComponent = ({ option, skills, setSkills }) => {
       {open && (
         <div className="border flex flex-col p-1 max-h-48 overflow-auto absolute w-full bg-base-100 z-10 ">
           {option.map((item) => (
-            <label
-              className="label p-1"
-              key={item.value}
-              onChange={() => selectHandler(item.label)}
-            >
+            <label className="label p-1" key={item.value}>
               <input
                 type="checkbox"
                 className="checkbox"
                 checked={skills.includes(item.label)}
+                onChange={() => selectHandler(item.label)}
               />
               {item.label}
             </label>

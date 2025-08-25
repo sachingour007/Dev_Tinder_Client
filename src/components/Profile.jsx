@@ -2,40 +2,64 @@ import React, { useState } from "react";
 import FeedCard from "./FeedCard";
 import MultiSelectComponent from "./MultiSelectComponent";
 import { skillOptions } from "../constant/skillList";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
+import { URL } from "../constant/hpCardData";
+import { addUser } from "../utils/userSlice";
 
 const Profile = () => {
   const userProfile = useSelector((store) => store.user);
-  if (!userProfile || !userProfile.user) {
-    return;
-  }
-  const { firstName, lastName, age, gender, photoUrl, about } =
-    userProfile?.user || {};
+  const dispatch = useDispatch();
 
-  const [updateProfile, setUpdateProfile] = useState({
-    firstName: firstName,
-    lastName: lastName,
-    age: age,
-    gender: gender,
-    photoUrl: photoUrl,
-    about: about,
-  });
-  const [skills, setSkills] = useState([]);
+  const [firstName, setFirstName] = useState(userProfile.firstName);
+  const [lastName, setLastName] = useState(userProfile.lastName || "");
+  const [gender, setGender] = useState(userProfile.gender || "");
+  const [age, setAge] = useState(userProfile.age || "");
+  const [photoUrl, setPhotoUrl] = useState(userProfile.photoUrl);
+  const [about, setAbout] = useState(userProfile.about);
+  const [skills, setSkills] = useState([...userProfile.skills]);
 
-  const textHandler = (e) => {
-    setUpdateProfile({ ...userProfile, [e.target.name]: e.target.value });
+  const [error, setError] = useState(null);
+
+  const updateHandler = async () => {
+    try {
+      const res = await axios.patch(
+        URL + "/profile/edit",
+        {
+          firstName,
+          lastName,
+          gender,
+          age,
+          photoUrl,
+          about,
+          skills,
+        },
+        { withCredentials: true }
+      );
+      dispatch(addUser(res.data.data));
+      setError(null);
+    } catch (err) {
+      console.log(err);
+      if (err.response) {
+        console.error("Backend said:", err.response.data.error);
+        setError(err.response.data.Error);
+      } else {
+        console.error("No response from server");
+        setError("No response from server");
+      }
+    }
   };
 
   return (
-    userProfile?.user && (
+    userProfile && (
       <div className="hero flex-1 ">
         <div className="hero-content px-5 flex-col items-start lg:flex-row border border-cyan-700 rounded-2xl w-full gap-[100px] bg-base-300">
           <div className="text-center lg:text-left w-1/2">
             <h2 className="text-5xl font-bold mb-10 text-center">
               Profile Update
             </h2>
-            <div className="">
-              <div>
+            <div className="flex flex-col items-center gap-2.5">
+              <div className="w-full">
                 <div className="flex flex-row gap-2.5 w-full">
                   <fieldset className="fieldset p-0 w-1/2">
                     <legend className="fieldset-legend font18 mb-1 tracking-wide ">
@@ -46,8 +70,8 @@ const Profile = () => {
                       className="input py-5 font16 w-full"
                       placeholder="Enter First Name"
                       name="firstName"
-                      value={updateProfile.firstName}
-                      onChange={textHandler}
+                      value={firstName}
+                      onChange={(e) => setFirstName(e.target.value)}
                     />
                   </fieldset>
                   <fieldset className="fieldset p-0 w-1/2">
@@ -59,8 +83,8 @@ const Profile = () => {
                       className="input py-5 font16 w-full"
                       placeholder="Enter Last Name"
                       name="lastName"
-                      value={updateProfile.lastName}
-                      onChange={textHandler}
+                      value={lastName}
+                      onChange={(e) => setLastName(e.target.value)}
                     />
                   </fieldset>
                 </div>
@@ -74,8 +98,8 @@ const Profile = () => {
                       defaultValue="Gender"
                       className="select"
                       name="gender"
-                      value={updateProfile.gender}
-                      onChange={textHandler}
+                      value={gender}
+                      onChange={(e) => setGender(e.target.value)}
                     >
                       <option disabled={true}>Gender</option>
                       <option value="male">Male</option>
@@ -91,8 +115,8 @@ const Profile = () => {
                       className="input py-5 font16"
                       placeholder="Enter Last Name"
                       name="age"
-                      value={updateProfile.age}
-                      onChange={textHandler}
+                      value={age}
+                      onChange={(e) => setAge(e.target.value)}
                     />
                   </fieldset>
                 </div>
@@ -119,8 +143,8 @@ const Profile = () => {
                     className="input py-5 font16 w-full"
                     placeholder="Enter Last Name"
                     name="photoUrl"
-                    value={updateProfile.photoUrl}
-                    onChange={textHandler}
+                    value={photoUrl}
+                    onChange={(e) => setPhotoUrl(e.target.value)}
                   />
                 </fieldset>
                 <fieldset className="fieldset p-0 w-full">
@@ -130,16 +154,30 @@ const Profile = () => {
                   <textarea
                     className="textarea font16 w-full"
                     placeholder="Bio"
-                    value={updateProfile.about}
+                    value={about}
                     name="about"
-                    onChange={textHandler}
+                    onChange={(e) => setAbout(e.target.value)}
                   ></textarea>
                 </fieldset>
               </div>
+              {error ? <p className="text-red-600 pl-1">{error}</p> : ""}
+              <button className="btn btn-primary" onClick={updateHandler}>
+                Submit
+              </button>
             </div>
           </div>
           <div className="card bg-base-200 shadow-sm w-1/2 flex items-center justify-center">
-            <FeedCard feedData={userProfile?.user} />
+            <FeedCard
+              feedData={{
+                firstName,
+                lastName,
+                gender,
+                age,
+                photoUrl,
+                about,
+                skills,
+              }}
+            />
           </div>
         </div>
       </div>

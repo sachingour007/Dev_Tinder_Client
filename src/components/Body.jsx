@@ -10,7 +10,7 @@ import { URL } from "../constant/hpCardData";
 const Body = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const userData = useSelector((stroe) => stroe.user);
+  const userData = useSelector((store) => store.user);
 
   const fetchUser = async () => {
     if (userData) return;
@@ -29,7 +29,7 @@ const Body = () => {
 
   useEffect(() => {
     fetchUser();
-  }, []);
+  }, [userData]);
 
   return (
     <div className="flex flex-col min-h-screen">

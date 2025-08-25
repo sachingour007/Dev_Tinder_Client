@@ -5,8 +5,8 @@ const FeedCard = ({ feedData }) => {
     feedData;
 
   return (
-    <div className="card bg-base-200 shadow-sm overflow-hidden">
-      <div className="relative w-[400px] h-[400px] flex items-center justify-center">
+    <div className="card bg-base-200 shadow-sm overflow-hidden w-full">
+      <div className="relative flex items-center justify-center overflow-hidden">
         <img src={photoUrl} alt="photo" />
       </div>
       <div className="card-body w-full p-3.5">

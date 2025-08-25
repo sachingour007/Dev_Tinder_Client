@@ -8,12 +8,13 @@ import { addFeed } from "../utils/feedSlice";
 const Feed = () => {
   const dispatch = useDispatch();
   const feedData = useSelector((store) => store.feed);
+  console.log(feedData);
 
   const getFeed = async () => {
     if (feedData) return;
     try {
       const res = await axios.get(URL + "/feed", { withCredentials: true });
-      dispatch(addFeed(res.data?.users));
+      dispatch(addFeed(res.data.users));
     } catch (error) {
       console.log(error);
     }
@@ -26,7 +27,7 @@ const Feed = () => {
   return (
     feedData && (
       <div className=" flex justify-center bg-gradient-to-b from-[#db2777] via-[#ef4444] to-[#f97316] flex-1 ">
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center w-1/4">
           {feedData.map((card) => (
             <FeedCard key={card._id} feedData={card} />
           ))}

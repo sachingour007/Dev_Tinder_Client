@@ -8,6 +8,8 @@ import { removeUser } from "../utils/userSlice";
 function Header() {
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
+  console.log(user);
+
   const dispatch = useDispatch();
 
   const logoutHandler = async () => {
@@ -29,7 +31,7 @@ function Header() {
       {user ? (
         <div className="flex items-center">
           <p className="mr-2.5 capitalize font-semibold">
-            Welcome {user.user.firstName}
+            Welcome {user.firstName}
           </p>
           <div className="flex gap-2">
             <div className="dropdown dropdown-end">
@@ -39,7 +41,7 @@ function Header() {
                 className="btn btn-ghost btn-circle avatar"
               >
                 <div className="w-10 rounded-full">
-                  <img alt="User Photo" src={user.user.photoUrl} />
+                  <img alt="User Photo" src={user.photoUrl} />
                 </div>
               </div>
               <ul
