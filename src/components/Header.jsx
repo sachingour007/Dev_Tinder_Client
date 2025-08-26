@@ -8,7 +8,6 @@ import { removeUser } from "../utils/userSlice";
 function Header() {
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
-  console.log(user);
 
   const dispatch = useDispatch();
 
@@ -21,6 +20,7 @@ function Header() {
       console.log(error);
     }
   };
+  
   return (
     <div className="navbar bg-neutral shadow-sm px-5 flex-none">
       <div className="flex-1">

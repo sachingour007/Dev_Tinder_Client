@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import { useEffect } from "react";
 import { URL } from "../constant/hpCardData";
+import { ToastContainer, toast } from "react-toastify";
 
 const Body = () => {
   const dispatch = useDispatch();
@@ -21,7 +22,7 @@ const Body = () => {
       dispatch(addUser(res.data));
     } catch (error) {
       if (error.response?.status === 401) {
-        navigate("/login");
+        navigate("/");
       }
       console.log(error);
     }
@@ -29,13 +30,14 @@ const Body = () => {
 
   useEffect(() => {
     fetchUser();
-  }, [userData]);
+  }, [userData, dispatch]);
 
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
       <Outlet />
       <Footer />
+      <ToastContainer />
     </div>
   );
 };

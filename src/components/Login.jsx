@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import { useNavigate } from "react-router-dom";
 import { URL } from "../constant/hpCardData";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const [emailId, setEmailId] = useState("mona@gmail.com");
@@ -20,6 +21,7 @@ const Login = () => {
         { withCredentials: true }
       );
       dispatch(addUser(res.data.user));
+      toast.success("Login Successfully !")
       navigate("/feed");
     } catch (err) {
       console.log(err);
