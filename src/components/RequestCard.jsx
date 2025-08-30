@@ -1,6 +1,6 @@
 import React from "react";
 
-const RequestCard = ({ card, isConnection }) => {
+const RequestCard = ({ card, isConnection, requestHandler, requedId }) => {
   const { _id, firstName, lastName, photoUrl, about, age, gender } = card;
   return (
     <div className="card card-side bg-base-300 shadow-sm flex items-center border max-w-1/2 min-w-1/3 p-2.5 gap-3.5 mb-3.5 last:mb-0">
@@ -27,10 +27,16 @@ const RequestCard = ({ card, isConnection }) => {
           ""
         ) : (
           <div className="flex gap-5 items-center">
-            <button className="btn btn-primary font16 tracking-wide leading-0.5">
+            <button
+              className="btn btn-primary font16 tracking-wide leading-0.5"
+              onClick={() => requestHandler("accepted", requedId)}
+            >
               Accept
             </button>
-            <button className="btn btn-error text-white font16 tracking-wide leading-0.5">
+            <button
+              className="btn btn-error text-white font16 tracking-wide leading-0.5"
+              onClick={() => requestHandler("rejected", requedId)}
+            >
               Reject
             </button>
           </div>
