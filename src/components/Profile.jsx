@@ -178,7 +178,7 @@ const Profile = () => {
             </button>
           </div>
         </div>
-        <div className="card bg-base-200 shadow-sm w-1/2 flex items-center justify-center">
+        <div className="card bg-base-200 shadow-sm w-1/2 flex items-center justify-center po">
           <FeedCard
             feedData={{
               firstName,

@@ -10,7 +10,9 @@ import {
   Body,
   LoginSingupWrapper,
   Singup,
+  AllConnections,
 } from "./index";
+import AllRequest from "./components/AllRequest";
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
               <Route index element={<Singup />} />
             </Route>
             <Route path="/profile" element={<Profile />} />
+            <Route path="/connections" element={<AllConnections />} />
+            <Route path="/requests" element={<AllRequest />} />
           </Route>
         </Routes>
       </BrowserRouter>

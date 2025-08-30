@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, Links, useNavigate } from "react-router-dom";
 import { URL } from "../constant/hpCardData";
 import { removeUser } from "../utils/userSlice";
+import { removeFeed } from "../utils/feedSlice";
 
 function Header() {
   const navigate = useNavigate();
@@ -15,12 +16,13 @@ function Header() {
     try {
       await axios.post(URL + "/logout", {}, { withCredentials: true });
       dispatch(removeUser());
+      dispatch(removeFeed());
       return navigate("/");
     } catch (error) {
       console.log(error);
     }
   };
-  
+
   return (
     <div className="navbar bg-neutral shadow-sm px-5 flex-none">
       <div className="flex-1">
@@ -54,7 +56,10 @@ function Header() {
                   </Link>
                 </li>
                 <li>
-                  <Link>Settings</Link>
+                  <Link to={"/connections"}>connections</Link>
+                </li>
+                <li>
+                  <Link to={"/requests"}>Requests</Link>
                 </li>
                 <li onClick={logoutHandler}>
                   <Link>Logout</Link>

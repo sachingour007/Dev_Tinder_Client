@@ -8,7 +8,6 @@ import { addFeed } from "../utils/feedSlice";
 const Feed = () => {
   const dispatch = useDispatch();
   const feedData = useSelector((store) => store.feed);
-  console.log(feedData);
 
   const getFeed = async () => {
     if (feedData) return;
@@ -27,9 +26,12 @@ const Feed = () => {
   return (
     feedData && (
       <div className=" flex justify-center bg-gradient-to-b from-[#db2777] via-[#ef4444] to-[#f97316] flex-1 ">
-        <div className="flex items-center justify-center w-1/4">
+        <div className="flex items-center justify-center relative w-1/4">
           {feedData.map((card) => (
-            <FeedCard key={card._id} feedData={card} />
+            <div key={card._id} className="absolute w-full">
+              <FeedCard  feedData={card} />
+
+            </div>
           ))}
         </div>
       </div>

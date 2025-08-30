@@ -5,3 +5,6 @@ export { default as Homepage } from "./components/Homepage.jsx";
 export { default as Body } from "./components/Body.jsx";
 export { default as LoginSingupWrapper } from "./components/LoginSingupWrapper.jsx";
 export { default as Singup } from "./components/Singup.jsx";
+export { default as AllConnections } from "./components/AllConnections.jsx";
+
+
