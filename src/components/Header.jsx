@@ -23,12 +23,20 @@ function Header() {
     }
   };
 
+  const logoHandler = () => {
+    if (user === null) {
+      navigate("/");
+    } else {
+      navigate("/feed");
+    }
+  };
+
   return (
     <div className="navbar bg-neutral shadow-sm px-5 flex-none">
       <div className="flex-1">
-        <Link to={"/feed"} className="btn btn-ghost text-xl">
+        <div className="btn btn-ghost text-xl" onClick={logoHandler}>
           👨‍💻 DevTinder
-        </Link>
+        </div>
       </div>
       {user ? (
         <div className="flex items-center">

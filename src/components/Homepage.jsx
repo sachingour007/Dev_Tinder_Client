@@ -2,6 +2,7 @@ import React from "react";
 import HompageCard from "./HompageCard";
 import { hpCardData } from "../constant/hpCardData";
 import TextRoatate from "./TextRoatate";
+import { Link } from "react-router-dom";
 
 const Homepage = () => {
   return (
@@ -23,9 +24,11 @@ const Homepage = () => {
                 Connect with fellow developers based on skill, hobbies and
                 coding preferences.
               </p>
-              <button className="btn btn-primary tracking-[0.5px]">
-                Sign up
-              </button>
+              <Link to={"/singup"}>
+                <button className="btn btn-primary tracking-[0.5px]">
+                  Sign up
+                </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -43,9 +46,7 @@ const Homepage = () => {
         </div>
       </section>
       <section className="text-center py-20 px-4 bg-base-300 text-white mb-[50px] lg:mb-[100px]">
-        <h2 className="font-bold mb-6 font40">
-          Why We Build Together
-        </h2>
+        <h2 className="font-bold mb-6 font40">Why We Build Together</h2>
         <TextRoatate />
       </section>
     </>

@@ -9,7 +9,7 @@ import {
   Homepage,
   Body,
   LoginSingupWrapper,
-  Singup,
+  Signup,
   AllConnections,
 } from "./index";
 import AllRequest from "./components/AllRequest";
@@ -26,7 +26,7 @@ function App() {
               <Route index element={<Login />} />
             </Route>
             <Route path="/singup" element={<LoginSingupWrapper />}>
-              <Route index element={<Singup />} />
+              <Route index element={<Signup />} />
             </Route>
             <Route path="/profile" element={<Profile />} />
             <Route path="/connections" element={<AllConnections />} />

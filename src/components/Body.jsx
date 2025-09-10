@@ -3,7 +3,7 @@ import Footer from "./Footer";
 import Header from "./Header";
 import { Outlet, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addUser } from "../utils/userSlice";
+import { addUser, removeUser } from "../utils/userSlice";
 import { useEffect } from "react";
 import { URL } from "../constant/hpCardData";
 import { ToastContainer, toast } from "react-toastify";
@@ -22,6 +22,7 @@ const Body = () => {
       dispatch(addUser(res.data));
     } catch (error) {
       if (error.response?.status === 401) {
+        dispatch(removeUser());
         navigate("/");
       }
       console.log(error);
