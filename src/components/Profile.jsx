@@ -107,13 +107,14 @@ const Profile = () => {
                     Gender
                   </legend>
                   <select
-                    defaultValue="Gender"
                     className="select"
                     name="gender"
-                    value={gender}
+                    value={gender || ""}
                     onChange={(e) => setGender(e.target.value)}
                   >
-                    <option disabled={true}>Gender</option>
+                    <option disabled={true} value="">
+                      Gender
+                    </option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                   </select>
