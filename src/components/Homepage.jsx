@@ -9,7 +9,7 @@ const Homepage = () => {
     <>
       <section className="mb-[50px] lg:mb-[100px]">
         <div className="hero bg-base-200">
-          <div className="hero-content flex-col lg:flex-row-reverse py-8 lg:px-10 lg:gap-[50px] xl:gap-[70px]">
+          <div className="hero-content flex-col lg:flex-row-reverse py-5 md:py-8 px-5 md:px-10 lg:px-12 lg:gap-[50px] xl:gap-[70px]">
             <div className=" w-full lg:w-3/6">
               <img
                 src="https://images.unsplash.com/photo-1629904869392-ae2a682d4d01?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -38,7 +38,7 @@ const Homepage = () => {
           <h2 className="text-center font48 tracking-wide leading-[140%] font-bold mb-5">
             What We Offer
           </h2>
-          <div className="flex justify-center gap-5 lg:px-[100px]">
+          <div className="flex flex-col md:flex-row md:flex-wrap  gap-5 xl:px-[50px]">
             {hpCardData.map((el) => (
               <HompageCard key={el.id} {...el} />
             ))}
@@ -46,7 +46,7 @@ const Homepage = () => {
         </div>
       </section>
       <section className="text-center py-20 px-4 bg-base-300 text-white mb-[50px] lg:mb-[100px]">
-        <h2 className="font-bold mb-6 font40">Why We Build Together</h2>
+        <h2 className="font-bold mb-6 font48">Why We Build Together</h2>
         <TextRoatate />
       </section>
     </>

@@ -36,8 +36,8 @@ const Login = () => {
   };
 
   return (
-    <div className="xl: w-4/5 my-0 mx-auto">
-      <h2 className="card-title text-center w-full block font36 font-semibold uppercase mb-5">
+    <div className=" xl:w-4/5 my-0 mx-auto">
+      <h2 className="card-title text-center w-full block font36 font-semibold uppercase mb-3 md:mb-5">
         User Login
       </h2>
       <div className="flex gap-2.5 flex-col">
@@ -71,7 +71,7 @@ const Login = () => {
 
         {error ? <p className="text-red-600 pl-1">{error}</p> : ""}
       </div>
-      <div className="card-actions mt-8 mb-6">
+      <div className="card-actions my-6 md:mt-8 md:mb-6">
         <button
           className="btn tracking-wider font16"
           onClick={loginFormHandler}
