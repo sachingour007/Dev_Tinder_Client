@@ -64,17 +64,17 @@ const Profile = () => {
   };
 
   return (
-    <div className="hero flex-1 ">
-      <div className="hero-content px-5 flex-col items-start lg:flex-row border border-cyan-700 rounded-2xl w-full gap-[100px] bg-base-300">
-        <div className="text-center lg:text-left w-1/2">
-          <h2 className="text-5xl font-bold mb-10 text-center">
+    <div className="hero flex-1 p-3.5 relative">
+      <div className="hero-content p-2.5 lg:p-5 flex-col items-start lg:flex-row border border-cyan-700 rounded-2xl w-full min-w-full lg:min-w-3/4 gap-[70px] lg:gap-[100px] bg-base-300">
+        <div className="text-center lg:text-left w-full lg:w-1/2 ">
+          <h2 className="font60 font-bold mb-3 lg:mb-10 text-center ">
             Profile Update
           </h2>
-          <div className="flex flex-col items-center gap-2.5">
+          <div className="flex flex-col lg:items-center gap-5">
             <div className="w-full">
-              <div className="flex flex-row gap-2.5 w-full">
-                <fieldset className="fieldset p-0 w-1/2">
-                  <legend className="fieldset-legend font18 mb-1 tracking-wide ">
+              <div className="flex flex-col  md:flex-row gap-2.5 w-full">
+                <fieldset className="fieldset p-0 w-full md:w-1/2 ">
+                  <legend className="fieldset-legend font18 mb-1 tracking-wide w-full items-start">
                     First Name
                   </legend>
                   <input
@@ -86,8 +86,8 @@ const Profile = () => {
                     onChange={(e) => setFirstName(e.target.value)}
                   />
                 </fieldset>
-                <fieldset className="fieldset p-0 w-1/2">
-                  <legend className="fieldset-legend font18 mb-1 tracking-wide">
+                <fieldset className="fieldset p-0 w-full md:w-1/2">
+                  <legend className="fieldset-legend font18 mb-1 tracking-wide w-full items-start">
                     Last Name
                   </legend>
                   <input
@@ -120,7 +120,7 @@ const Profile = () => {
                   </select>
                 </div>
                 <fieldset className="fieldset p-0 w-1/2">
-                  <legend className="fieldset-legend font18 mb-1 tracking-wide">
+                  <legend className="fieldset-legend font18 mb-1 tracking-wide w-full items-start">
                     Age
                   </legend>
                   <input
@@ -135,7 +135,7 @@ const Profile = () => {
               </div>
 
               <div>
-                <legend className="fieldset-legend font18 mb-1 tracking-wide">
+                <legend className="fieldset-legend font18 mb-1 tracking-wide ">
                   Skills
                 </legend>
                 <div>
@@ -148,7 +148,7 @@ const Profile = () => {
               </div>
 
               <fieldset className="fieldset p-0 w-full">
-                <legend className="fieldset-legend font18 mb-1 tracking-wide">
+                <legend className="fieldset-legend font18 mb-1 tracking-wide w-full items-start">
                   Photo URL
                 </legend>
                 <input
@@ -161,7 +161,7 @@ const Profile = () => {
                 />
               </fieldset>
               <fieldset className="fieldset p-0 w-full">
-                <legend className="fieldset-legend font18 mb-1 tracking-wide">
+                <legend className="fieldset-legend font18 mb-1 tracking-wide w-full items-start">
                   About
                 </legend>
                 <textarea
@@ -179,7 +179,7 @@ const Profile = () => {
             </button>
           </div>
         </div>
-        <div className="card bg-base-200 shadow-sm w-1/2 flex items-center justify-center po">
+        <div className="card shadow-sm flex items-center justify-center w-full lg:w-1/3 ">
           <FeedCard
             feedData={{
               firstName,

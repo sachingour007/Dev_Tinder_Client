@@ -42,19 +42,16 @@ const Feed = () => {
   }
 
   return (
-    <div className=" flex justify-center bg-gradient-to-b from-[#db2777] via-[#ef4444] to-[#f97316] flex-1 ">
-      <div className="flex items-center justify-center relative w-1/4">
+    <div className=" flex justify-center bg-gradient-to-b from-[#db2777] via-[#ef4444] to-[#f97316] flex-1 py-10">
+      <div className="flex items-center justify-center relative max-w-4/5 xl:max-w-1/4 ">
         {feedData && feedData.length > 0 ? (
-          feedData.map((card) => (
-            <div key={card._id} className="absolute w-full">
-              {" "}
-              <FeedCard
-                feedData={card}
-                feedHandler={feedHandler}
-                isFeed={true}
-              />{" "}
-            </div>
-          ))
+          <div className="w-full">
+            <FeedCard
+              feedData={feedData[0]}
+              feedHandler={feedHandler}
+              isFeed={true}
+            />
+          </div>
         ) : (
           <p className="text-center font18">No Data Found</p>
         )}

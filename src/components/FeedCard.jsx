@@ -5,7 +5,7 @@ const FeedCard = ({ feedData, feedHandler, isFeed }) => {
     feedData;
 
   return (
-    <div className="card bg-base-200 shadow-sm overflow-hidden  ">
+    <div className="card bg-base-200 shadow-sm overflow-hidden  w-full">
       <div className="relative flex items-center justify-center overflow-hidden">
         <img src={photoUrl} alt="photo" />
       </div>
@@ -19,12 +19,17 @@ const FeedCard = ({ feedData, feedHandler, isFeed }) => {
           </div>
         </div>
         <p className="font16 font-medium tracking-wide">{about}</p>
-        <div className="flex items-center gap-1.5 mb-2.5 ">
-          <p className="grow-0 font16 font-semibold tracking-wider">Skills :</p>
-          <ul className="flex gap-2">
+        <div className="flex lg:items-center gap-2 mb-2.5">
+          <p className="font16 font-semibold tracking-wider w-[55px]">
+            Skills :
+          </p>
+          <ul className="flex flex-wrap gap-2 w-[calc(100%-55px)]">
             {skills.map((skill, index) => (
-              <li key={index} className="font16 font-semibold tracking-[1px] ">
-                {"[" + skill + "]"},
+              <li
+                key={index}
+                className="px-3 py-1 text-sm rounded-full bg-gradient-to-r from-pink-500 to-orange-400 text-white font-medium shadow-sm"
+              >
+                {skill}
               </li>
             ))}
           </ul>

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, Links, useNavigate } from "react-router-dom";
 import { URL } from "../constant/hpCardData";
 import { removeUser } from "../utils/userSlice";
-import { removeFeed } from "../utils/feedSlice";
+import { cleanFeed } from "../utils/feedSlice";
 
 function Header() {
   const navigate = useNavigate();
@@ -16,7 +16,7 @@ function Header() {
     try {
       await axios.post(URL + "/logout", {}, { withCredentials: true });
       dispatch(removeUser());
-      dispatch(removeFeed());
+      dispatch(cleanFeed());
       return navigate("/");
     } catch (error) {
       console.log(error);
