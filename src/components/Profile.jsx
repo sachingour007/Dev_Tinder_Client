@@ -64,8 +64,8 @@ const Profile = () => {
   };
 
   return (
-    <div className="hero flex-1 p-3.5 relative">
-      <div className="hero-content p-2.5 lg:p-5 flex-col items-start lg:flex-row border border-cyan-700 rounded-2xl w-full min-w-full lg:min-w-3/4 gap-[70px] lg:gap-[100px] bg-base-300">
+    <div className="hero flex-1 p-3.5 md:p-5 relative">
+      <div className="hero-content p-2.5 md:p-5 lg:p-5 flex-col items-start lg:flex-row lg:items-center border border-cyan-700 rounded-2xl w-full min-w-full lg:min-w-3/4 gap-[70px] lg:gap-[80px] bg-base-300">
         <div className="text-center lg:text-left w-full lg:w-1/2 ">
           <h2 className="font60 font-bold mb-3 lg:mb-10 text-center ">
             Profile Update
@@ -107,7 +107,7 @@ const Profile = () => {
                     Gender
                   </legend>
                   <select
-                    className="select"
+                    className="select w-full"
                     name="gender"
                     value={gender || ""}
                     onChange={(e) => setGender(e.target.value)}
@@ -125,7 +125,7 @@ const Profile = () => {
                   </legend>
                   <input
                     type="number"
-                    className="input py-5 font16"
+                    className="input py-5 font16 w-full"
                     placeholder="Enter Last Name"
                     name="age"
                     value={age}
@@ -179,7 +179,7 @@ const Profile = () => {
             </button>
           </div>
         </div>
-        <div className="card shadow-sm flex items-center justify-center w-full lg:w-1/3 ">
+        <div className="card shadow-sm flex items-center justify-center w-full lg:w-1/2 p-2.5 lg:p-10 bg-gradient-to-b from-[#db2777] via-[#ef4444] to-[#f97316] ">
           <FeedCard
             feedData={{
               firstName,

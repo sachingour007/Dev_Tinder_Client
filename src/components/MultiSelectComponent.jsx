@@ -17,7 +17,7 @@ const MultiSelectComponent = ({ option, skills, setSkills }) => {
         className="input py-5 w-full flex justify-between items-center cursor-pointer "
         onClick={() => setOpen(!open)}
       >
-        <div className="w-[98%]">
+        <div className="w-[98%] flex">
           {skills.length <= 0
             ? "Please Select Skills"
             : skills.map((s) => (

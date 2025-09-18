@@ -3,13 +3,13 @@ import React from "react";
 const RequestCard = ({ card, isConnection, requestHandler, requedId }) => {
   const { _id, firstName, lastName, photoUrl, about, age, gender } = card;
   return (
-    <div className="card card-side bg-base-300 shadow-sm flex items-center border max-w-1/2 min-w-1/3 p-2.5 gap-3.5 mb-3.5 last:mb-0">
+    <div className="card card-side bg-base-300 shadow-sm flex items-center border w-[90%] max-w-full md:max-w-3/5 lg:max-w-1/2 2xl:max-w-1/3 min-w-1/3 p-2.5 gap-3.5 mb-3.5 last:mb-0">
       <div className="w-20 h-20 rounded-full overflow-hidden ">
         <img src={photoUrl} alt="user photo" />
       </div>
       <div
-        className={`card-body w-[calc(100%-120px)] p-0 flex flex-row  gap-3.5 ${
-          isConnection ? "" : "justify-between"
+        className={`card-body w-[calc(100%-120px)] p-0 flex lg:flex-row  gap-3.5 ${
+          isConnection ? "" : "justify-between "
         }`}
       >
         <div>

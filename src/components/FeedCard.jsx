@@ -11,7 +11,7 @@ const FeedCard = ({ feedData, feedHandler, isFeed }) => {
       </div>
       <div className="card-body w-full p-3.5">
         <div className="flex items-center gap-2">
-          <h2 className="card-title font36 font-medium tracking-wide capitalize">
+          <h2 className="card-title text-[20px] xl:font36 font-medium tracking-wide capitalize">
             {firstName + " " + lastName}
           </h2>
           <div className="flex gap-1 capitalize font-semibold">
@@ -19,7 +19,7 @@ const FeedCard = ({ feedData, feedHandler, isFeed }) => {
           </div>
         </div>
         <p className="font16 font-medium tracking-wide">{about}</p>
-        <div className="flex lg:items-center gap-2 mb-2.5">
+        <div className="flex gap-2 mb-2.5">
           <p className="font16 font-semibold tracking-wider w-[55px]">
             Skills :
           </p>
@@ -27,7 +27,7 @@ const FeedCard = ({ feedData, feedHandler, isFeed }) => {
             {skills.map((skill, index) => (
               <li
                 key={index}
-                className="px-3 py-1 text-sm rounded-full bg-gradient-to-r from-pink-500 to-orange-400 text-white font-medium shadow-sm"
+                className="px-3 py-1 text-sm rounded-full bg-gradient-to-r from-pink-500 to-orange-400 text-white font-medium shadow-sm uppercase tracking-wide"
               >
                 {skill}
               </li>

@@ -32,9 +32,9 @@ function Header() {
   };
 
   return (
-    <div className="navbar bg-neutral shadow-sm px-5 flex-none">
+    <div className="navbar bg-neutral shadow-sm md:px-5 flex-none">
       <div className="flex-1">
-        <div className="btn btn-ghost text-xl" onClick={logoHandler}>
+        <div className="btn btn-ghost text-[18px] md:text-xl px-2 md:px-4" onClick={logoHandler}>
           👨‍💻 DevTinder
         </div>
       </div>
