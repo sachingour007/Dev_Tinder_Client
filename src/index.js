@@ -1,4 +1,4 @@
-export { default as Profile } from "./components/profile.jsx";
+export { default as Profile } from "./components/Profile.jsx";
 export { default as Feed } from "./components/Feed.jsx";
 export { default as Login } from "./components/Login.jsx";
 export { default as Homepage } from "./components/Homepage.jsx";
