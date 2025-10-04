@@ -6,3 +6,4 @@ export { default as Body } from "./components/Body.jsx";
 export { default as LoginSingupWrapper } from "./components/LoginSingupWrapper.jsx";
 export { default as Signup } from "./components/Signup.jsx";
 export { default as AllConnections } from "./components/AllConnections.jsx";
+export { default as AllRequest } from "./components/AllRequest.jsx";
