@@ -30,5 +30,4 @@ export const qouteData = [
 	"You don't build products — you build teams.",
 ];
 
-// export const URL = "http://localhost:8080"; //Development
-export const URL = "/api"; //Production
+
