@@ -45,7 +45,7 @@ const Homepage = () => {
           </div>
         </div>
       </section>
-      <section className="text-center py-20 px-4 bg-base-300 text-white mb-[50px] lg:mb-[100px]">
+      <section className="text-center py-20 px-4 bg-base-300 dark:bg-base-200 text-white mb-[50px] lg:mb-[100px]">
         <h2 className="font-bold mb-6 font48">Why We Build Together</h2>
         <TextRoatate />
       </section>

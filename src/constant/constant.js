@@ -1,2 +1,2 @@
-// export const URL = "http://localhost:8080"; //Development
-export const URL = "/api"; //Production
+export const URL =
+	location.hostname === "localhost" ? "http://localhost:8080" : "/api";
